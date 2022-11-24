@@ -28,13 +28,15 @@ while True:
 		
 		
 		#resize the frame
+		rez_frame = cv2.resize(frame , (224,224))
+
 		
 		# expand the dimensions
-		
+		rez_frame = np.expand_dims(resized_frame , axis = 0)
 		# normalize it before feeding to the model
-		
+		rez_frame = resized_frame / 255
 		# get predictions from the model
-		
+		predictions = model.predict(resized_frame)
 		
 		
 		# displaying the frames captured
